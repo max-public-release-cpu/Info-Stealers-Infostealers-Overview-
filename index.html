@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>What Is an Infostealer? Info Stealer Malware Guide</title>
+<meta name="description" content="Learn how infostealer malware steals passwords, cookies, and crypto wallets, how it spreads, and the best ways to protect your accounts and data.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://yourusername.github.io/your-repo/">
+
+<meta property="og:type" content="article">
+<meta property="og:title" content="What Is an Infostealer? Info Stealer Malware Guide">
+<meta property="og:description" content="How infostealer malware steals credentials and session tokens, how it spreads, and how to defend against it.">
+<meta property="og:url" content="https://yourusername.github.io/your-repo/">
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="What Is an Infostealer? Info Stealer Malware Guide">
+<meta name="twitter:description" content="How infostealer malware steals credentials and session tokens, how it spreads, and how to defend against it.">
+
+<style>
+  :root {
+    --paper: #FAF8F3;
+    --ink: #1B1E1C;
+    --ink-soft: #4A4E4B;
+    --rule: #DAD4C4;
+    --amber: #A8480F;
+    --teal: #14544F;
+    --mono: "IBM Plex Mono", "SF Mono", Consolas, monospace;
+    --serif: "Source Serif 4", "Iowan Old Style", Georgia, serif;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--serif);
+    font-size: 18px;
+    line-height: 1.6;
+  }
+
+  .wrap {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 4rem 1.5rem 6rem;
+  }
+
+  header.hero {
+    border-bottom: 3px solid var(--ink);
+    padding-bottom: 2rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .kicker {
+    font-family: var(--mono);
+    font-size: 0.8rem;
+    color: var(--amber);
+    letter-spacing: 0.02em;
+    margin-bottom: 0.75rem;
+  }
+
+  h1 {
+    font-size: 2.4rem;
+    line-height: 1.15;
+    margin: 0 0 1rem;
+    font-weight: 600;
+  }
+
+  .dek {
+    color: var(--ink-soft);
+    font-size: 1.15rem;
+    max-width: 58ch;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+    margin: 3rem 0 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  p { max-width: 68ch; }
+
+  ul, ol { padding-left: 1.3rem; }
+  li { margin-bottom: 0.5rem; max-width: 62ch; }
+
+  .takeaways {
+    background: #F1EDE1;
+    border-left: 3px solid var(--amber);
+    padding: 1.25rem 1.5rem;
+    margin: 2rem 0;
+  }
+  .takeaways h2 { margin-top: 0; border: none; padding: 0; font-size: 1.1rem; }
+  .takeaways ul { margin: 0.5rem 0 0; }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1rem 0 2rem;
+    font-size: 0.95rem;
+  }
+  th, td {
+    text-align: left;
+    padding: 0.6rem 0.75rem;
+    border-bottom: 1px solid var(--rule);
+    vertical-align: top;
+  }
+  th {
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    color: var(--ink-soft);
+    font-weight: 500;
+  }
+
+  code {
+    font-family: var(--mono);
+    background: #F1EDE1;
+    padding: 0.1rem 0.35rem;
+    border-radius: 3px;
+    font-size: 0.85em;
+  }
+
+  .faq dt {
+    font-weight: 600;
+    margin-top: 1.25rem;
+  }
+  .faq dd {
+    margin: 0.35rem 0 0;
+    color: var(--ink-soft);
+    max-width: 62ch;
+  }
+
+  footer {
+    margin-top: 4rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--rule);
+    font-family: var(--mono);
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+  }
+
+  a { color: var(--teal); }
+  a:hover { color: var(--amber); }
+
+  @media (max-width: 480px) {
+    h1 { font-size: 1.9rem; }
+    body { font-size: 16.5px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <div class="kicker">Threat Reference</div>
+    <h1>What Is an Infostealer?</h1>
+    <p class="dek">Info stealer malware quietly harvests passwords, cookies, and crypto wallets from an infected device — here's how it works, how it spreads, and how to defend against it.</p>
+  </header>
+
+  <section class="takeaways">
+    <h2>Key takeaways</h2>
+    <ul>
+      <li>Infostealers silently collect passwords, browser data, session tokens, crypto wallets, and system information.</li>
+      <li>They commonly spread through cracked software, phishing emails, and malicious ads.</li>
+      <li>Stolen data is resold cheaply on underground markets and fuels identity theft and ransomware.</li>
+      <li>Patching, 2FA, and password hygiene are the most effective defenses.</li>
+    </ul>
+  </section>
+
+  <p><strong>Infostealer malware</strong> (also written "info stealer") is malicious software built to quietly harvest private data from a computer or phone and send it back to a cybercriminal. Infostealers are widely distributed as malware-as-a-service (MaaS), which lowers the technical bar and puts this capability in the hands of a broad range of attackers.</p>
+
+  <h2>What data does an infostealer collect?</h2>
+  <table>
+    <thead><tr><th>Category</th><th>Examples</th></tr></thead>
+    <tbody>
+      <tr><td>Login credentials</td><td>Usernames, passwords, and saved logins for email, social media, and banking</td></tr>
+      <tr><td>Browser data</td><td>Saved credit cards, search history, autofill entries, and cookies</td></tr>
+      <tr><td>Session tokens</td><td>Active login keys that let attackers bypass 2FA and access accounts directly</td></tr>
+      <tr><td>Crypto wallets</td><td>Private keys and digital currency funds</td></tr>
+      <tr><td>System information</td><td>Device names, IP addresses, chat logs, and desktop screenshots</td></tr>
+    </tbody>
+  </table>
+
+  <h2>How does it spread?</h2>
+  <ul>
+    <li><strong>Malicious downloads</strong> — fake game mods, cracked software, pirated applications</li>
+    <li><strong>Phishing</strong> — deceptive emails and malicious links</li>
+    <li><strong>Malvertising</strong> — harmful ads on otherwise legitimate websites</li>
+  </ul>
+
+  <h2>Why it's dangerous</h2>
+  <p>Stolen data is often sold cheaply on underground markets, fueling identity theft, financial fraud, corporate network breaches, and ransomware attacks. Because session tokens can bypass 2FA entirely, a single infection can lead directly to account takeover even on well-protected accounts.</p>
+
+  
+
+  <h2>FAQ</h2>
+  <dl class="faq">
+    <dt>Is an infostealer a virus?</dt>
+    <dd>Not exactly — it's a category of malware focused on data theft rather than self-replication, though it's often bundled with other payloads.</dd>
+
+    <dt>Can antivirus software detect infostealers?</dt>
+    <dd>Up-to-date antivirus with real-time protection catches many known variants, but new or customized strains can sometimes evade detection.</dd>
+
+    <dt>What should I do if I think I'm infected?</dt>
+    <dd>Disconnect from the internet, run a full scan, change passwords from a clean device, revoke active sessions, and enable 2FA.</dd>
+  </dl>
+
+
+  <footer>
+    <code>repo:</code> https://github.com/max-public-release-cpu/Info-Stealers-Infostealers-Overview-.git
+  </footer>
+
+</div>
+</body>
+</html>
